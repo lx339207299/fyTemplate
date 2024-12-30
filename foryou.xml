@@ -1,0 +1,114 @@
+<templateSet group="foryou">
+  <template name="cor-0064ff" value="const Color(0xFF$colorValue$)" description="颜色0064ff" toReformat="false" toShortenFQNames="true">
+    <variable name="colorValue" expression="" defaultValue="&quot;0064FF&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="cor-1b1c33" value="const Color(0xFF1B1C33)" description="颜色1b1c33" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fy_navigator" value="Navigator.pushNamed(context, &#10;RouteName.$name$, arguments: $SELECTION$);" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fypro-margin-only" value="margin: EdgeInsets.only($placeHolder$)," description="marin使用only" toReformat="false" toShortenFQNames="true">
+    <variable name="placeHolder" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fypro-margin-symmetric" value="margin: EdgeInsets.symmetric(horizontal: $h$,vertical: $v$)," description="" toReformat="false" toShortenFQNames="true">
+    <variable name="h" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="v" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fypro-padding-only" value="padding: EdgeInsets.only($placeHolder$)," description="padding使用only" toReformat="false" toShortenFQNames="true">
+    <variable name="placeHolder" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fypro-padding-symmetric" value="padding: EdgeInsets.symmetric(horizontal: $h$,vertical: $v$)," description="" toReformat="false" toShortenFQNames="true">
+    <variable name="h" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="v" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fyui-assetsgen" value="Assets.images.$iconPath$.image(width: $width$, height: $height$)," description="创建AssetsGen的图片" toReformat="false" toShortenFQNames="true">
+    <variable name="iconPath" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="width" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="height" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fyui-column" value="Column(&#10;    children: [&#10;        $SubClass$&#10;    ]&#10;)" description="创建一个Column" toReformat="false" toShortenFQNames="true">
+    <variable name="SubClass" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fyui-container-full-coner" value="Container(&#10;&#9;decoration: const BoxDecoration(&#10;&#9;&#9;color: $color$,&#10;&#9;&#9;borderRadius: BorderRadius.all(Radius.circular($radius$)),&#10;&#9;),&#10;&#9;alignment: Alignment.centerLeft,&#10;&#9;child: $placeHolder$&#10;)" description="创建一个圆角Container" toReformat="true" toShortenFQNames="true">
+    <variable name="color" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="radius" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="placeHolder" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fyui-page" value="import 'package:flutter/material.dart';&#10;import 'package:fy_router_annotation/fy_router_annotation.dart';&#10;import 'package:fy_uikit/fy_uikit.dart';&#10;&#10;import '../../base/base_view.dart';&#10;import '../../routes/route_name.dart';&#10;import 'viewmodel.dart';&#10;&#10;@FYRoute(name: &quot;$name$&quot;, path: RouteName.$routeName$)&#10;class $className$Page extends StatelessWidget {&#10;  final $modelName$ViewModel _viewModel;&#10;&#10;  $className$Page({&#10;    super.key,&#10;  }) : _viewModel = $modelName$ViewModel();&#10;&#10;  @override&#10;  Widget build(BuildContext context) {&#10;    return Scaffold(&#10;      appBar: const FYAppBar(&#10;        title: '$title$',&#10;      ),&#10;      body: BaseView(&#10;        model: _viewModel,&#10;        builder: (context, model, child) {&#10;          return Placeholder();&#10;        },&#10;      ),&#10;    );&#10;  }&#10;}&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="routeName" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="className" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="modelName" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="title" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fyui-row" value="Row(&#10;    children: [&#10;        $SubClass$&#10;    ]&#10;)" description="创建一个列" toReformat="false" toShortenFQNames="true">
+    <variable name="SubClass" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fyui-text" value="Text(&#10;    $content$,&#10;    style: TextStyle(&#10;        fontSize: $fontSize$,&#10;        color: $color$,&#10;        fontWeight: $fontWeight$,&#10;    ),&#10;)," description="创建一个text s" toReformat="false" toShortenFQNames="true">
+    <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fontSize" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="color" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="fontWeight" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="fyui_text_style" value="FYText.styled(data: $data$, size: FYTextSize.$size$, color: FYCommonColor.$color$,)" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="data" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="size" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="color" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fyui_text_style_complete" value="FYText.styled(data: $data$, size: FYTextSize.$size$, color: FYCommonColor.$color$,)" description="演示自动补全功能" toReformat="false" toShortenFQNames="true">
+    <variable name="data" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="size" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="color" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="fyui_gesture" value="&#10;GestureDetector(&#10;              onTap: (){&#10;                $tabContent$&#10;              },&#10;              child: $SELECTION$&#10;            )," description="" toReformat="true" toShortenFQNames="true">
+    <variable name="tabContent" expression="" defaultValue="&quot;&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+</templateSet>
