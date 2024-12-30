@@ -1,0 +1,81 @@
+import os
+import subprocess
+
+def find_android_studio_directories(base_path):
+    """搜索指定路径下的Android Studio版本目录"""
+    if not os.path.exists(base_path):
+        print(f"路径不存在: {base_path}")
+        return []
+
+    directories = []
+    for entry in os.listdir(base_path):
+        if entry.startswith("AndroidStudio") and os.path.isdir(os.path.join(base_path, entry)):
+            templates_path = os.path.join(base_path, entry, "templates")
+            if os.path.exists(templates_path):
+                directories.append(templates_path)
+    return directories
+
+def select_directory(directories):
+    """供用户选择目标目录"""
+    if not directories:
+        print("未找到符合条件的目录。")
+        return None
+
+    print("找到以下目录:")
+    for i, directory in enumerate(directories):
+        print(f"{i + 1}. {directory}")
+
+    choice = input("请输入目录编号进行选择: ")
+    try:
+        choice = int(choice)
+        if 1 <= choice <= len(directories):
+            return directories[choice - 1]
+    except ValueError:
+        pass
+
+    print("无效选择。")
+    return None
+
+def associate_git(directory):
+    """检查并关联Git仓库"""
+    git_dir = os.path.join(directory, ".git")
+    if not os.path.exists(git_dir):
+        print("未检测到Git仓库，开始关联远程仓库...")
+        subprocess.run(["git", "init"], cwd=directory, check=True)
+        subprocess.run(["git", "remote", "add", "origin", "https://github.com/lx339207299/fyTemplate"], cwd=directory, check=True)
+    else:
+        print("检测到Git仓库，跳过关联步骤。")
+
+def update_repository(directory):
+    """执行git pull更新"""
+    print("开始更新仓库...")
+    subprocess.run(["git", "pull", "origin", "main"], cwd=directory, check=True)
+    print("更新成功！")
+
+def list_files(directory):
+    """列出目录下的所有文件，排除.git目录"""
+    print("更新后的文件列表:")
+    for root, dirs, files in os.walk(directory):
+        # 排除.git目录
+        if ".git" in dirs:
+            dirs.remove(".git")
+        for name in files:
+            print(os.path.relpath(os.path.join(root, name), start=directory))
+
+def main():
+    base_path = "/Users/lixiong/Library/Application Support/Google"
+    directories = find_android_studio_directories(base_path)
+
+    selected_directory = select_directory(directories)
+    if not selected_directory:
+        return
+
+    try:
+        associate_git(selected_directory)
+        update_repository(selected_directory)
+        list_files(selected_directory)
+    except subprocess.CalledProcessError as e:
+        print(f"执行命令时出错: {e}")
+
+if __name__ == "__main__":
+    main()
